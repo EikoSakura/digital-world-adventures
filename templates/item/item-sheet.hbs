@@ -1,0 +1,108 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" width="64" height="64"/>
+    <div class="header-fields">
+      <h1><input name="name" type="text" value="{{item.name}}" placeholder="Item Name"/></h1>
+      <div class="item-type">{{item.type}}</div>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="details">Details</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+
+    <div class="tab details" data-group="primary" data-tab="details">
+      {{#if (eq item.type "attack")}}
+        <div class="form-group">
+          <label>Attack Type</label>
+          <select name="system.attackType">
+            <option value="basic" {{#if (eq system.attackType "basic")}}selected{{/if}}>Basic</option>
+            <option value="special" {{#if (eq system.attackType "special")}}selected{{/if}}>Special</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Damage Type</label>
+          <select name="system.damageType">
+            <option value="physical">Physical</option>
+            <option value="magical" {{#if (eq system.damageType "magical")}}selected{{/if}}>Magical</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Range</label>
+          <select name="system.range">
+            <option value="close">Close</option>
+            <option value="near" {{#if (eq system.range "near")}}selected{{/if}}>Near</option>
+            <option value="far" {{#if (eq system.range "far")}}selected{{/if}}>Far</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Intensity</label>
+          <input type="text" name="system.intensity" value="{{system.intensity}}" data-dtype="Number"/>
+        </div>
+      {{/if}}
+
+      {{#if (eq item.type "talent")}}
+        <div class="form-group">
+          <label>Category</label>
+          <select name="system.category">
+            <option value="tamer">Tamer</option>
+            <option value="command" {{#if (eq system.category "command")}}selected{{/if}}>Command</option>
+            <option value="evolution" {{#if (eq system.category "evolution")}}selected{{/if}}>Evolution</option>
+            <option value="raising" {{#if (eq system.category "raising")}}selected{{/if}}>Raising</option>
+            <option value="asset" {{#if (eq system.category "asset")}}selected{{/if}}>Asset</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Effect</label>
+          <textarea name="system.effect">{{system.effect}}</textarea>
+        </div>
+      {{/if}}
+
+      {{#if (eq item.type "equipment")}}
+        <div class="form-group">
+          <label>Equipment Type</label>
+          <input type="text" name="system.equipmentType" value="{{system.equipmentType}}"/>
+        </div>
+        <div class="form-group">
+          <label>Cost (Bits)</label>
+          <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="Number"/>
+        </div>
+        <div class="form-group">
+          <label>Equipped</label>
+          <input type="checkbox" name="system.equipped" {{checked system.equipped}}/>
+        </div>
+      {{/if}}
+
+      {{#if (eq item.type "consumable")}}
+        <div class="form-group">
+          <label>Cost (Bits)</label>
+          <input type="text" name="system.cost" value="{{system.cost}}" data-dtype="Number"/>
+        </div>
+        <div class="form-group">
+          <label>Quantity</label>
+          <input type="text" name="system.quantity" value="{{system.quantity}}" data-dtype="Number"/>
+        </div>
+      {{/if}}
+
+      {{#if (eq item.type "ability")}}
+        <div class="form-group">
+          <label>Ability Type</label>
+          <select name="system.abilityType">
+            <option value="passive">Passive</option>
+            <option value="active" {{#if (eq system.abilityType "active")}}selected{{/if}}>Active</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Effect</label>
+          <textarea name="system.effect">{{system.effect}}</textarea>
+        </div>
+      {{/if}}
+    </div>
+  </section>
+</form>

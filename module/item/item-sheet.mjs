@@ -1,5 +1,5 @@
 /**
- * Extend the basic ItemSheet
+ * Extend the basic ItemSheet for Digimon: Digital World Adventures
  */
 export class DigitalWorldItemSheet extends ItemSheet {
 
@@ -15,103 +15,28 @@ export class DigitalWorldItemSheet extends ItemSheet {
 
   /** @override */
   get template() {
-    const path = "systems/digital-world-adventures/templates/item";
-    return `${path}/item-${this.item.type}-sheet.hbs`;
+    // Use a universal item sheet for all types
+    return `systems/digital-world-adventures/templates/item/item-sheet.hbs`;
   }
 
   /** @override */
   async getData() {
-    // Retrieve base data structure
     const context = super.getData();
-
-    // Use a safe clone of the item data for further operations
     const itemData = context.data;
 
-    // Retrieve the roll data for TinyMCE editors
     context.rollData = this.item.getRollData();
-
-    // Add the item's data to context for easier access
     context.system = itemData.system;
     context.flags = itemData.flags;
 
-    // Prepare item type specific data
-    this._prepareItemTypeData(context);
-
     return context;
-  }
-
-  /**
-   * Prepare item type specific data
-   */
-  _prepareItemTypeData(context) {
-    switch (context.item.type) {
-      case 'ability':
-        this._prepareAbilityData(context);
-        break;
-      case 'equipment':
-        this._prepareEquipmentData(context);
-        break;
-      case 'skill':
-        this._prepareSkillData(context);
-        break;
-    }
-  }
-
-  /**
-   * Prepare ability specific data
-   */
-  _prepareAbilityData(context) {
-    // Add damage types
-    context.damageTypes = {
-      'physical': 'Physical',
-      'energy': 'Energy',
-      'digital': 'Digital',
-      'elemental': 'Elemental'
-    };
-
-    // Add cost types
-    context.costTypes = {
-      'energy': 'Energy',
-      'health': 'Health',
-      'none': 'None'
-    };
-  }
-
-  /**
-   * Prepare equipment specific data
-   */
-  _prepareEquipmentData(context) {
-    // Add attribute names for bonuses
-    context.attributeNames = {
-      'strength': 'Strength',
-      'agility': 'Agility',
-      'intellect': 'Intellect',
-      'willpower': 'Willpower',
-      'charisma': 'Charisma'
-    };
-  }
-
-  /**
-   * Prepare skill specific data
-   */
-  _prepareSkillData(context) {
-    // Add attribute names for skill association
-    context.attributeNames = {
-      'strength': 'Strength',
-      'agility': 'Agility',
-      'intellect': 'Intellect',
-      'willpower': 'Willpower',
-      'charisma': 'Charisma'
-    };
   }
 
   /** @override */
   activateListeners(html) {
     super.activateListeners(html);
 
-    // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    // Roll handlers, click handlers, etc. would go here
+    // Custom listeners can go here
   }
 }

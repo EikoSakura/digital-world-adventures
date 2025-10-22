@@ -1,6 +1,8 @@
 /**
- * Extend the base Actor document
+ * Extend the base Actor document for Digimon: Digital World Adventures
  */
+import * as helpers from "../helpers/helpers.mjs";
+
 export class DigitalWorldActor extends Actor {
 
   /**
@@ -23,29 +25,100 @@ export class DigitalWorldActor extends Actor {
   prepareDerivedData() {
     const actorData = this;
     const systemData = actorData.system;
-    const flags = actorData.flags.digitalworld || {};
 
-    // Make separate methods for each Actor type to keep things organized
-    this._prepareCharacterData(actorData);
+    // Make separate methods for each Actor type
+    this._prepareTamerData(actorData);
+    this._prepareDigimonData(actorData);
     this._prepareNpcData(actorData);
   }
 
   /**
-   * Prepare Character type specific data
+   * Prepare Tamer type specific data
    */
-  _prepareCharacterData(actorData) {
-    if (actorData.type !== 'character') return;
+  _prepareTamerData(actorData) {
+    if (actorData.type !== 'tamer') return;
 
     const systemData = actorData.system;
 
-    // Calculate attribute modifiers
-    for (let [key, attribute] of Object.entries(systemData.attributes)) {
-      attribute.mod = Math.floor((attribute.value - 10) / 2);
-    }
+    // Calculate derived stats
+    const vigor = systemData.parameters.vigor.value;
+    const agility = systemData.parameters.agility.value;
+    const spirit = systemData.parameters.spirit.value;
 
-    // Calculate max health and energy based on attributes
-    systemData.health.max = 10 + (systemData.attributes.willpower.value * 2);
-    systemData.energy.max = 10 + systemData.attributes.intellect.value;
+    // Calculate max HP: Base HP (3 or 5 with Brawler) + Vigor
+    systemData.hp.max = systemData.hp.base + vigor;
+
+    // Calculate max Digisoul: Spirit + 3
+    systemData.digisoul.max = spirit + 3;
+
+    // Calculate Defense: (Vigor + Agility) / 4, minimum 1
+    systemData.defense.value = helpers.calculateDefense(vigor, agility);
+
+    // Calculate Magic Defense: (Spirit + Agility) / 4, minimum 1
+    systemData.magicDefense.value = helpers.calculateMagicDefense(spirit, agility);
+
+    // Initiative bonus is calculated with partner's agility in sheet
+  }
+
+  /**
+   * Prepare Digimon type specific data
+   */
+  _prepareDigimonData(actorData) {
+    if (actorData.type !== 'digimon') return;
+
+    const systemData = actorData.system;
+
+    // Get current stage evolution data
+    const currentStage = systemData.stage;
+    const evolutionData = systemData.evolution[currentStage];
+
+    if (!evolutionData) return;
+
+    // Calculate derived stats
+    const vigor = systemData.parameters.vigor.value;
+    const agility = systemData.parameters.agility.value;
+    const spirit = systemData.parameters.spirit.value;
+
+    // Calculate max HP: Base HP (from evolution stage) + Vigor
+    systemData.hp.base = evolutionData.baseHp;
+    systemData.hp.max = evolutionData.baseHp + vigor;
+
+    // Calculate max Digisoul: Spirit + 3
+    systemData.digisoul.max = spirit + 3;
+
+    // Calculate Defense: (Vigor + Agility) / 4, minimum 1
+    systemData.defense.value = helpers.calculateDefense(vigor, agility);
+
+    // Calculate Magic Defense: (Spirit + Agility) / 4, minimum 1
+    systemData.magicDefense.value = helpers.calculateMagicDefense(spirit, agility);
+
+    // Apply personality modifiers to parameter limits
+    this._applyPersonalityLimits(systemData);
+  }
+
+  /**
+   * Apply personality modifiers to Digimon parameter limits
+   */
+  _applyPersonalityLimits(systemData) {
+    const personality = systemData.personality;
+
+    for (let [stageName, stageData] of Object.entries(systemData.evolution)) {
+      const params = stageData.parameters;
+
+      // Reset all to default
+      for (let param in params) {
+        // Personality increases max of associated parameter by 1
+        if (
+          (personality === 'fighter' && param === 'power') ||
+          (personality === 'brave' && param === 'vigor') ||
+          (personality === 'timid' && param === 'agility') ||
+          (personality === 'brainy' && param === 'intellect') ||
+          (personality === 'empath' && param === 'spirit')
+        ) {
+          // Note: This would need to be stored separately or calculated each time
+        }
+      }
+    }
   }
 
   /**
@@ -56,14 +129,22 @@ export class DigitalWorldActor extends Actor {
 
     const systemData = actorData.system;
 
-    // Calculate attribute modifiers
-    for (let [key, attribute] of Object.entries(systemData.attributes)) {
-      attribute.mod = Math.floor((attribute.value - 10) / 2);
-    }
+    // Calculate derived stats
+    const vigor = systemData.parameters.vigor.value;
+    const agility = systemData.parameters.agility.value;
+    const spirit = systemData.parameters.spirit.value;
 
-    // Calculate health and energy based on challenge rating
-    systemData.health.max = 10 + (systemData.challenge * 5);
-    systemData.energy.max = 10 + (systemData.challenge * 3);
+    // Calculate max HP: Base + Vigor
+    systemData.hp.max = systemData.hp.base + vigor;
+
+    // Calculate max Digisoul: Spirit + 3
+    systemData.digisoul.max = spirit + 3;
+
+    // Calculate Defense
+    systemData.defense.value = helpers.calculateDefense(vigor, agility);
+
+    // Calculate Magic Defense
+    systemData.magicDefense.value = helpers.calculateMagicDefense(spirit, agility);
   }
 
   /**
@@ -72,50 +153,171 @@ export class DigitalWorldActor extends Actor {
   getRollData() {
     const data = { ...super.getRollData() };
 
-    // Prepare character roll data
-    this._getCharacterRollData(data);
-    this._getNpcRollData(data);
+    // Add parameters for easy access
+    if (data.parameters) {
+      for (let [k, v] of Object.entries(data.parameters)) {
+        data[k] = v.value;
+      }
+    }
+
+    // Add skills for easy access
+    if (data.skills) {
+      for (let [category, skills] of Object.entries(data.skills)) {
+        for (let [skillName, skillData] of Object.entries(skills)) {
+          data[skillName] = skillData.value;
+        }
+      }
+    }
 
     return data;
   }
 
   /**
-   * Prepare character roll data
+   * Roll a dice pool check
    */
-  _getCharacterRollData(data) {
-    if (this.type !== 'character') return;
+  async rollCheck(parameter, skill, difficulty = 1, autoSuccesses = 0) {
+    const systemData = this.system;
 
-    // Copy attribute modifiers for easy access
-    if (data.attributes) {
-      for (let [k, v] of Object.entries(data.attributes)) {
-        data[k] = v.value;
-        data[`${k}Mod`] = v.mod;
+    // Get parameter and skill values
+    let paramValue = 0;
+    let skillValue = 0;
+
+    if (systemData.parameters && systemData.parameters[parameter]) {
+      paramValue = systemData.parameters[parameter].value;
+    }
+
+    // Find skill in any category
+    if (systemData.skills) {
+      for (let category of Object.values(systemData.skills)) {
+        if (category[skill]) {
+          skillValue = category[skill].value;
+          break;
+        }
       }
     }
 
-    // Add level for convenience
-    if (data.level) {
-      data.lvl = data.level;
-    }
+    // Calculate dice pool
+    const poolSize = paramValue + skillValue;
+
+    // Roll the dice pool
+    const rollResult = await helpers.rollDicePool(poolSize, autoSuccesses);
+
+    // Check for critical
+    const criticalResult = helpers.checkCritical(rollResult.successes, difficulty);
+
+    // Create chat message
+    const messageData = {
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      flavor: `${parameter.toUpperCase()} + ${skill.charAt(0).toUpperCase() + skill.slice(1)} Check`,
+      content: await renderTemplate("systems/digital-world-adventures/templates/chat/dice-pool-roll.hbs", {
+        actor: this,
+        parameter: parameter,
+        skill: skill,
+        poolSize: rollResult.poolSize,
+        results: rollResult.results,
+        successes: rollResult.successes,
+        autoSuccesses: rollResult.autoSuccesses,
+        difficulty: difficulty,
+        difficultyLabel: helpers.getDifficultyLabel(difficulty),
+        result: criticalResult
+      })
+    };
+
+    await ChatMessage.create(messageData);
+
+    return {
+      ...rollResult,
+      criticalResult: criticalResult
+    };
   }
 
   /**
-   * Prepare NPC roll data
+   * Evolve Digimon to a new stage
    */
-  _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
-
-    // Copy attribute modifiers for easy access
-    if (data.attributes) {
-      for (let [k, v] of Object.entries(data.attributes)) {
-        data[k] = v.value;
-        data[`${k}Mod`] = v.mod;
-      }
+  async evolve(targetStage) {
+    if (this.type !== 'digimon') {
+      ui.notifications.warn("Only Digimon can evolve!");
+      return false;
     }
 
-    // Add challenge rating
-    if (data.challenge) {
-      data.cr = data.challenge;
+    const systemData = this.system;
+    const currentStage = systemData.stage;
+    const evolutionData = systemData.evolution[targetStage];
+
+    // Check if stage is unlocked
+    if (!evolutionData || !evolutionData.unlocked) {
+      ui.notifications.warn("This evolution stage is not yet unlocked!");
+      return false;
     }
+
+    // Calculate digisoul cost
+    const cost = helpers.calculateEvolutionCost(currentStage, targetStage);
+
+    // Check if tamer has enough digisoul
+    const tamer = game.actors.get(systemData.tamerId);
+    if (tamer && tamer.system.digisoul.value < cost) {
+      ui.notifications.warn(`Evolution requires ${cost} Digisoul!`);
+      return false;
+    }
+
+    // Deduct digisoul from tamer
+    if (tamer) {
+      await tamer.update({
+        'system.digisoul.value': tamer.system.digisoul.value - cost
+      });
+    }
+
+    // Update stage
+    await this.update({
+      'system.stage': targetStage
+    });
+
+    // Create chat message
+    const messageData = {
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      content: `<div class="evolution-message">
+        <h3>${this.name} digivolves!</h3>
+        <p>${helpers.getStageLabel(currentStage)} → ${helpers.getStageLabel(targetStage)}</p>
+        <p>Digisoul Cost: ${cost}</p>
+      </div>`
+    };
+
+    await ChatMessage.create(messageData);
+
+    ui.notifications.info(`${this.name} evolved to ${helpers.getStageLabel(targetStage)}!`);
+    return true;
+  }
+
+  /**
+   * Spend Digisoul
+   */
+  async spendDigisoul(amount) {
+    const systemData = this.system;
+
+    if (systemData.digisoul.value < amount) {
+      ui.notifications.warn("Not enough Digisoul!");
+      return false;
+    }
+
+    await this.update({
+      'system.digisoul.value': systemData.digisoul.value - amount
+    });
+
+    return true;
+  }
+
+  /**
+   * Recover Digisoul
+   */
+  async recoverDigisoul(amount) {
+    const systemData = this.system;
+    const newValue = Math.min(systemData.digisoul.value + amount, systemData.digisoul.max);
+
+    await this.update({
+      'system.digisoul.value': newValue
+    });
+
+    ui.notifications.info(`Recovered ${amount} Digisoul!`);
+    return true;
   }
 }

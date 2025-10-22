@@ -1,5 +1,5 @@
 /**
- * Digital World Adventures System
+ * Digimon: Digital World Adventures System
  * Main entry point for the Foundry VTT system
  */
 
@@ -18,7 +18,7 @@ import * as helpers from "./helpers/helpers.mjs";
  * Initialize the system
  */
 Hooks.once('init', async function() {
-  console.log('Digital World Adventures | Initializing System');
+  console.log('Digimon: Digital World Adventures | Initializing System');
 
   // Add custom constants
   game.digitalworld = {
@@ -35,13 +35,13 @@ Hooks.once('init', async function() {
   Actors.unregisterSheet("core", ActorSheet);
   Actors.registerSheet("digital-world-adventures", DigitalWorldActorSheet, {
     makeDefault: true,
-    label: "DIGITALWORLD.SheetLabels.Actor"
+    label: "Digital World Adventures Actor Sheet"
   });
 
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("digital-world-adventures", DigitalWorldItemSheet, {
     makeDefault: true,
-    label: "DIGITALWORLD.SheetLabels.Item"
+    label: "Digital World Adventures Item Sheet"
   });
 
   // Preload Handlebars templates
@@ -49,13 +49,15 @@ Hooks.once('init', async function() {
 
   // Register Handlebars helpers
   registerHandlebarsHelpers();
+
+  console.log('Digimon: Digital World Adventures | System Initialized');
 });
 
 /**
  * Ready hook - runs when the game is fully loaded
  */
 Hooks.once('ready', async function() {
-  console.log('Digital World Adventures | System Ready');
+  console.log('Digimon: Digital World Adventures | System Ready');
 });
 
 /**
@@ -63,13 +65,8 @@ Hooks.once('ready', async function() {
  */
 async function preloadHandlebarsTemplates() {
   const templatePaths = [
-    // Actor sheet partials
-    "systems/digital-world-adventures/templates/actor/parts/actor-attributes.hbs",
-    "systems/digital-world-adventures/templates/actor/parts/actor-items.hbs",
-    "systems/digital-world-adventures/templates/actor/parts/actor-effects.hbs",
-
-    // Item sheet partials
-    "systems/digital-world-adventures/templates/item/parts/item-effects.hbs"
+    // Chat templates
+    "systems/digital-world-adventures/templates/chat/dice-pool-roll.hbs",
   ];
 
   return loadTemplates(templatePaths);
@@ -90,14 +87,23 @@ function registerHandlebarsHelpers() {
   });
 
   Handlebars.registerHelper('toLowerCase', function(str) {
-    return str.toLowerCase();
+    return str ? str.toLowerCase() : '';
   });
 
-  Handlebars.registerHelper('times', function(n, block) {
-    let accum = '';
-    for (let i = 0; i < n; ++i) {
-      accum += block.fn(i);
-    }
-    return accum;
+  Handlebars.registerHelper('eq', function(a, b) {
+    return a === b;
+  });
+
+  Handlebars.registerHelper('gt', function(a, b) {
+    return a > b;
+  });
+
+  Handlebars.registerHelper('capitalize', function(str) {
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  });
+
+  Handlebars.registerHelper('checked', function(value) {
+    return value ? 'checked' : '';
   });
 }

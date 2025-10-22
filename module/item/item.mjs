@@ -1,5 +1,5 @@
 /**
- * Extend the base Item document
+ * Extend the base Item document for Digimon: Digital World Adventures
  */
 export class DigitalWorldItem extends Item {
 
@@ -14,7 +14,7 @@ export class DigitalWorldItem extends Item {
    * Prepare base item data
    */
   prepareBaseData() {
-    // Data modifications in this step occur before processing derived data
+    // Data modifications occur before processing derived data
   }
 
   /**
@@ -23,40 +23,26 @@ export class DigitalWorldItem extends Item {
   prepareDerivedData() {
     const itemData = this;
     const systemData = itemData.system;
-    const flags = itemData.flags.digitalworld || {};
 
-    // Make separate methods for each Item type to keep things organized
-    this._prepareAbilityData(itemData);
-    this._prepareEquipmentData(itemData);
+    // Type-specific preparation
+    this._prepareAttackData(itemData);
   }
 
   /**
-   * Prepare Ability type specific data
+   * Prepare Attack type specific data
    */
-  _prepareAbilityData(itemData) {
-    if (itemData.type !== 'ability') return;
+  _prepareAttackData(itemData) {
+    if (itemData.type !== 'attack') return;
 
     const systemData = itemData.system;
 
-    // Ensure damage value exists
-    if (!systemData.damage) {
-      systemData.damage = {
-        value: "",
-        type: "physical"
+    // Ensure accuracy data exists
+    if (!systemData.accuracy) {
+      systemData.accuracy = {
+        parameter: 'power',
+        skill: 'melee'
       };
     }
-  }
-
-  /**
-   * Prepare Equipment type specific data
-   */
-  _prepareEquipmentData(itemData) {
-    if (itemData.type !== 'equipment') return;
-
-    const systemData = itemData.system;
-
-    // Calculate total armor value if equipped
-    systemData.totalArmor = systemData.equipped ? systemData.armor : 0;
   }
 
   /**
@@ -72,7 +58,7 @@ export class DigitalWorldItem extends Item {
   }
 
   /**
-   * Handle clickable rolls
+   * Handle clickable rolls for attacks
    */
   async roll() {
     const item = this;
@@ -80,29 +66,21 @@ export class DigitalWorldItem extends Item {
     // Initialize chat data
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
     const rollMode = game.settings.get('core', 'rollMode');
-    const label = `[${item.type}] ${item.name}`;
+    const label = `${item.name}`;
 
-    // If there's no roll data, send a chat message
-    if (!this.system.formula) {
-      ChatMessage.create({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-        content: item.system.description ?? ''
-      });
-    }
-    // Otherwise, create a roll
-    else {
-      const rollData = this.getRollData();
-
-      // Invoke the roll and submit it to chat
-      const roll = new Roll(this.system.formula, rollData);
-      roll.toMessage({
-        speaker: speaker,
-        rollMode: rollMode,
-        flavor: label,
-      });
-      return roll;
-    }
+    // For attacks, create a simple display message
+    ChatMessage.create({
+      speaker: speaker,
+      rollMode: rollMode,
+      flavor: label,
+      content: `<div class="attack-card">
+        <h3>${item.name}</h3>
+        <p><strong>Type:</strong> ${item.system.attackType}</p>
+        <p><strong>Damage Type:</strong> ${item.system.damageType}</p>
+        <p><strong>Range:</strong> ${item.system.range}</p>
+        <p><strong>Intensity:</strong> ${item.system.intensity}</p>
+        <p>${item.system.description || ''}</p>
+      </div>`
+    });
   }
 }

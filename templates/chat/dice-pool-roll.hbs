@@ -1,0 +1,27 @@
+<div class="dice-pool-roll">
+  <div class="roll-header">
+    <strong>{{actor.name}}</strong> rolls {{parameter}} + {{skill}}
+  </div>
+  <div class="dice-results">
+    <div class="dice-pool">
+      Pool: {{poolSize}}d6
+      {{#if autoSuccesses}}
+      + {{autoSuccesses}} auto
+      {{/if}}
+    </div>
+    <div class="dice-display">
+      {{#each results}}
+      <span class="die {{#if success}}success{{else}}failure{{/if}}">{{value}}</span>
+      {{/each}}
+    </div>
+  </div>
+  <div class="roll-result {{result}}">
+    <div class="successes">Successes: {{successes}} vs Difficulty: {{difficulty}}</div>
+    <div class="result-label">
+      {{#if (eq result "critical-success")}}CRITICAL SUCCESS!{{/if}}
+      {{#if (eq result "success")}}Success{{/if}}
+      {{#if (eq result "failure")}}Failure{{/if}}
+      {{#if (eq result "critical-failure")}}CRITICAL FAILURE!{{/if}}
+    </div>
+  </div>
+</div>
