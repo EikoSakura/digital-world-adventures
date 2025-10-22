@@ -25,6 +25,88 @@
       "path": "lang/en.json"
     }
   ],
+  "packs": [
+    {
+      "name": "digimon-baby-i",
+      "label": "Digimon - Baby I",
+      "path": "packs/digimon-baby-i",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "digimon-baby-ii",
+      "label": "Digimon - Baby II",
+      "path": "packs/digimon-baby-ii",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "digimon-child",
+      "label": "Digimon - Child",
+      "path": "packs/digimon-child",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "digimon-adult",
+      "label": "Digimon - Adult",
+      "path": "packs/digimon-adult",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "digimon-perfect",
+      "label": "Digimon - Perfect",
+      "path": "packs/digimon-perfect",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "digimon-ultimate",
+      "label": "Digimon - Ultimate",
+      "path": "packs/digimon-ultimate",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "digimon-super-ultimate",
+      "label": "Digimon - Super Ultimate",
+      "path": "packs/digimon-super-ultimate",
+      "type": "Actor",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    },
+    {
+      "name": "crests",
+      "label": "Crests",
+      "path": "packs/crests",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
   "documentTypes": {
     "Actor": {
       "tamer": {},
@@ -37,7 +119,8 @@
       "ability": {},
       "equipment": {},
       "consumable": {},
-      "asset": {}
+      "asset": {},
+      "crest": {}
     }
   },
   "gridDistance": 1,

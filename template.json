@@ -227,7 +227,7 @@
     }
   },
   "Item": {
-    "types": ["talent", "attack", "ability", "equipment", "consumable", "asset"],
+    "types": ["talent", "attack", "ability", "equipment", "consumable", "asset", "crest"],
     "templates": {
       "base": {
         "description": ""
@@ -283,6 +283,13 @@
       "assetType": "survival",
       "cost": 50,
       "quantity": 1
+    },
+    "crest": {
+      "templates": ["base"],
+      "crestType": "courage",
+      "iconColor": "red",
+      "effect": "",
+      "embodied": false
     }
   }
 }

@@ -1,0 +1,20 @@
+{
+  "_id": "crestlove0000001",
+  "name": "Love",
+  "type": "crest",
+  "img": "icons/svg/hearts.svg",
+  "system": {
+    "description": "Deeply caring for others.\n\nWhenever you make a check to accomplish a task that would be fueled by your crest, or you feel the virtue embodied by your crest filling you up, you gain one automatic success on that check. If you succeed on the check, you regain 1 Digisoul. If that check is a Critical Success, your Digimon may immediately evolve.",
+    "crestType": "love",
+    "iconColor": "pink",
+    "effect": "Whenever you make a check to accomplish a task that would be fueled by your crest, or you feel the virtue embodied by your crest filling you up, you gain one automatic success on that check. If you succeed on the check, you regain 1 Digisoul. If that check is a Critical Success, your Digimon may immediately evolve.",
+    "embodied": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

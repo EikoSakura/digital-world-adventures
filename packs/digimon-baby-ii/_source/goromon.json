@@ -1,0 +1,152 @@
+{
+  "_id": "goromon00000000001",
+  "name": "Goromon",
+  "type": "digimon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "species": "Goromon",
+    "stage": "baby2",
+    "attribute": "free",
+    "element": "earth",
+    "type": "ore",
+    "personality": "fighter",
+    "movementTypes": ["land"],
+    "hp": {
+      "value": 6,
+      "max": 6,
+      "base": 6
+    },
+    "digisoul": {
+      "value": 3,
+      "max": 3
+    },
+    "parameters": {
+      "power": {
+        "value": 1,
+        "label": "Power"
+      },
+      "agility": {
+        "value": 1,
+        "label": "Agility"
+      },
+      "vigor": {
+        "value": 1,
+        "label": "Vigor"
+      },
+      "intellect": {
+        "value": 1,
+        "label": "Intellect"
+      },
+      "spirit": {
+        "value": 1,
+        "label": "Spirit"
+      }
+    },
+    "evolution": {
+      "baby2": {
+        "species": "Goromon",
+        "unlocked": true,
+        "baseHp": 6,
+        "parameters": {
+          "power": { "min": 1, "max": 2 },
+          "agility": { "min": 1, "max": 2 },
+          "vigor": { "min": 1, "max": 3 },
+          "intellect": { "min": 1, "max": 2 },
+          "spirit": { "min": 1, "max": 2 }
+        }
+      }
+    },
+    "biography": "A Baby Digimon that grows by eating rocks. Because its digestive system is not fully developed yet, it stores an amount of ore in its body unimaginable given its small size, and gradually converts it into nourishment."
+  },
+  "items": [
+    {
+      "_id": "goromonability001",
+      "name": "Munch! Munch! Munch!",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Goromon heals an additional +2 HP from Food Items.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Goromon heals an additional +2 HP from Food Items."
+      }
+    },
+    {
+      "_id": "goromonability002",
+      "name": "Slow Digestion",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "After finishing a Camp Scene, Goromon gains Shield HP equal to its Vigor Parameter. Unlike normal Shield HP, it can access it as Free Action, replenishing its HP.",
+        "abilityType": "passive",
+        "trigger": "After Camp Scene",
+        "effect": "Gain Shield HP equal to Vigor. Can access as Free Action to replenish HP."
+      }
+    },
+    {
+      "_id": "goromonability003",
+      "name": "Stored Ore",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Goromon produces 1 Digital Ore whenever it finishes a Camp Scene.",
+        "abilityType": "passive",
+        "trigger": "After Camp Scene",
+        "effect": "Produce 1 Digital Ore."
+      }
+    },
+    {
+      "_id": "goromonattack001",
+      "name": "Headbutt",
+      "type": "attack",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "A basic physical headbutt attack.",
+        "attackType": "basic",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "power",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": []
+      }
+    },
+    {
+      "_id": "goromonattack002",
+      "name": "Rock Breath",
+      "type": "attack",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "Goromon breathes out rocks at the enemy.",
+        "attackType": "special",
+        "damageType": "magical",
+        "element": "earth",
+        "range": "close",
+        "accuracy": {
+          "parameter": "vigor",
+          "skill": "projectile"
+        },
+        "intensity": 2,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": []
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

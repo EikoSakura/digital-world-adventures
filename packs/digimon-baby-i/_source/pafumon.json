@@ -1,0 +1,152 @@
+{
+  "_id": "pafumon000000001",
+  "name": "Pafumon",
+  "type": "digimon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "species": "Pafumon",
+    "stage": "baby1",
+    "attribute": "free",
+    "element": "wind",
+    "type": "spirit",
+    "personality": "fighter",
+    "movementTypes": ["fly"],
+    "hp": {
+      "value": 3,
+      "max": 3,
+      "base": 3
+    },
+    "digisoul": {
+      "value": 3,
+      "max": 3
+    },
+    "parameters": {
+      "power": {
+        "value": 1,
+        "label": "Power"
+      },
+      "agility": {
+        "value": 1,
+        "label": "Agility"
+      },
+      "vigor": {
+        "value": 1,
+        "label": "Vigor"
+      },
+      "intellect": {
+        "value": 1,
+        "label": "Intellect"
+      },
+      "spirit": {
+        "value": 1,
+        "label": "Spirit"
+      }
+    },
+    "evolution": {
+      "baby1": {
+        "species": "Pafumon",
+        "unlocked": true,
+        "baseHp": 3,
+        "parameters": {
+          "power": { "min": 1, "max": 1 },
+          "agility": { "min": 1, "max": 2 },
+          "vigor": { "min": 1, "max": 1 },
+          "intellect": { "min": 1, "max": 2 },
+          "spirit": { "min": 1, "max": 1 }
+        }
+      }
+    },
+    "biography": "A Spirit Digimon that possesses a translucent body. Since its body is light as down, it is constantly drifting through the air. It has the habit of moving upon the winds, and it is said that if the wind's condition is suitable it will migrate a considerable distance."
+  },
+  "items": [
+    {
+      "_id": "pafumonability001",
+      "name": "Follow the Breeze",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "If it's windy, Pafumon can move as a free action in the direction of the wind. (Storyteller's Discretion).",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "If it's windy, Pafumon can move as a free action in the direction of the wind. (Storyteller's Discretion)."
+      }
+    },
+    {
+      "_id": "pafumonability002",
+      "name": "Drifting Like a Feather",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Pafumon gains +1 Evasion.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Pafumon gains +1 Evasion."
+      }
+    },
+    {
+      "_id": "pafumonability003",
+      "name": "Weightless",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "When Pafumon is hit by an attack that deals Wind damage, it can move to another zone in the opposite direction of the attacker.",
+        "abilityType": "reactive",
+        "trigger": "When hit by Wind damage",
+        "effect": "Move to another zone in the opposite direction of the attacker."
+      }
+    },
+    {
+      "_id": "pafumonattack001",
+      "name": "Headbutt",
+      "type": "attack",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "A basic physical headbutt attack.",
+        "attackType": "basic",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "agility",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": []
+      }
+    },
+    {
+      "_id": "pafumonattack002",
+      "name": "Puff Balloon",
+      "type": "attack",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "Pafumon fires a bubble of wind at the enemy. After making this attack, Pafumon can immediately move to another zone.",
+        "attackType": "special",
+        "damageType": "magical",
+        "element": "wind",
+        "range": "close",
+        "accuracy": {
+          "parameter": "intellect",
+          "skill": "projectile"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "intellect",
+          "value": 0
+        },
+        "effects": ["After making this attack, Pafumon can immediately move to another zone."]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

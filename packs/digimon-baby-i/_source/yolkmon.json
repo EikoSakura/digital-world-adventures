@@ -1,0 +1,152 @@
+{
+  "_id": "yolkmon0000000001",
+  "name": "Yolkmon",
+  "type": "digimon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "species": "Yolkmon",
+    "stage": "baby1",
+    "attribute": "free",
+    "element": "neutral",
+    "type": "slime",
+    "personality": "fighter",
+    "movementTypes": ["land"],
+    "hp": {
+      "value": 2,
+      "max": 2,
+      "base": 2
+    },
+    "digisoul": {
+      "value": 3,
+      "max": 3
+    },
+    "parameters": {
+      "power": {
+        "value": 1,
+        "label": "Power"
+      },
+      "agility": {
+        "value": 1,
+        "label": "Agility"
+      },
+      "vigor": {
+        "value": 1,
+        "label": "Vigor"
+      },
+      "intellect": {
+        "value": 1,
+        "label": "Intellect"
+      },
+      "spirit": {
+        "value": 1,
+        "label": "Spirit"
+      }
+    },
+    "evolution": {
+      "baby1": {
+        "species": "Yolkmon",
+        "unlocked": true,
+        "baseHp": 2,
+        "parameters": {
+          "power": { "min": 1, "max": 1 },
+          "agility": { "min": 1, "max": 1 },
+          "vigor": { "min": 1, "max": 1 },
+          "intellect": { "min": 1, "max": 2 },
+          "spirit": { "min": 1, "max": 2 }
+        }
+      }
+    },
+    "biography": "A Slime Digimon that still wears the shell from its Digitama. It has a carefree personality and lives its life by slipping into the nests of other Digimon. Because its Digitama shell acts as camouflage, it evolves while hardly being spotted."
+  },
+  "items": [
+    {
+      "_id": "yolkmonability001",
+      "name": "Camouflage",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Yolkmon gains +1 Skill Rank to Stealth.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Yolkmon gains +1 Skill Rank to Stealth."
+      }
+    },
+    {
+      "_id": "yolkmonability002",
+      "name": "Digitama Shell",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Yolkmon reduces the time it needs to hatch by half.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Yolkmon reduces the time it needs to hatch by half."
+      }
+    },
+    {
+      "_id": "yolkmonability003",
+      "name": "Egg-ception",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "If Yolkmon was hiding when combat begins, it may immediately make a Bubble attack against a hostile Human or Digimon.",
+        "abilityType": "reactive",
+        "trigger": "Combat begins while hiding",
+        "effect": "Make an immediate Bubble attack against a hostile Human or Digimon."
+      }
+    },
+    {
+      "_id": "yolkmonattack001",
+      "name": "Headbutt",
+      "type": "attack",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "A basic physical headbutt attack.",
+        "attackType": "basic",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "agility",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": []
+      }
+    },
+    {
+      "_id": "yolkmonattack002",
+      "name": "Bubble",
+      "type": "attack",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "Yolkmon fires a bubble of water at the enemy.",
+        "attackType": "special",
+        "damageType": "magical",
+        "element": "water",
+        "range": "close",
+        "accuracy": {
+          "parameter": "intellect",
+          "skill": "projectile"
+        },
+        "intensity": 2,
+        "bonus": {
+          "parameter": "spirit",
+          "value": 0
+        },
+        "effects": []
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

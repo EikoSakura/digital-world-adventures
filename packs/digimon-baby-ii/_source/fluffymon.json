@@ -1,0 +1,152 @@
+{
+  "_id": "fluffymon00000001",
+  "name": "Fluffymon",
+  "type": "digimon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "species": "Fluffymon",
+    "stage": "baby2",
+    "attribute": "free",
+    "element": "neutral",
+    "type": "avian",
+    "personality": "fighter",
+    "movementTypes": ["land"],
+    "hp": {
+      "value": 5,
+      "max": 5,
+      "base": 5
+    },
+    "digisoul": {
+      "value": 3,
+      "max": 3
+    },
+    "parameters": {
+      "power": {
+        "value": 1,
+        "label": "Power"
+      },
+      "agility": {
+        "value": 1,
+        "label": "Agility"
+      },
+      "vigor": {
+        "value": 1,
+        "label": "Vigor"
+      },
+      "intellect": {
+        "value": 1,
+        "label": "Intellect"
+      },
+      "spirit": {
+        "value": 1,
+        "label": "Spirit"
+      }
+    },
+    "evolution": {
+      "baby2": {
+        "species": "Fluffymon",
+        "unlocked": true,
+        "baseHp": 5,
+        "parameters": {
+          "power": { "min": 1, "max": 2 },
+          "agility": { "min": 1, "max": 3 },
+          "vigor": { "min": 1, "max": 2 },
+          "intellect": { "min": 1, "max": 2 },
+          "spirit": { "min": 1, "max": 2 }
+        }
+      }
+    },
+    "biography": "A Small Bird Digimon that operates while hiding within the luscious leaves of the forest trees. Although it is still unable to fly due to its wings being undeveloped, it is agile enough to dash up vertical tree trunks in one go."
+  },
+  "items": [
+    {
+      "_id": "fluffymonability001",
+      "name": "Dashing Strike",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "If Fluffymon targets a Panicked target, it can move as a free action before or after the attack is made.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "If Fluffymon targets a Panicked target, it can move as a free action before or after the attack is made."
+      }
+    },
+    {
+      "_id": "fluffymonability002",
+      "name": "Speedy Dash",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "If Fluffymon succeeds on an Evade check, it can immediately move to another zone.",
+        "abilityType": "reactive",
+        "trigger": "Succeeds on Evade check",
+        "effect": "Immediately move to another zone."
+      }
+    },
+    {
+      "_id": "fluffymonability003",
+      "name": "Vertical Traversal",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Fluffymon does not need to make checks to climb. It can walk even vertically.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Fluffymon does not need to make checks to climb. It can walk even vertically."
+      }
+    },
+    {
+      "_id": "fluffymonattack001",
+      "name": "Headbutt",
+      "type": "attack",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "A basic physical headbutt attack.",
+        "attackType": "basic",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "power",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": []
+      }
+    },
+    {
+      "_id": "fluffymonattack002",
+      "name": "Birdy Head",
+      "type": "attack",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "A swift headbutt attack that can panic the enemy. Surge 3: Target is Panicked.",
+        "attackType": "special",
+        "damageType": "magical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "agility",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": ["Surge 3: Target is Panicked."]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}
