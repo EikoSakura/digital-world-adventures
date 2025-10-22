@@ -95,6 +95,16 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "crests",
+      "label": "Crests",
+      "path": "packs/crests",
+      "type": "Item",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "documentTypes": {
@@ -109,7 +119,8 @@
       "ability": {},
       "equipment": {},
       "consumable": {},
-      "asset": {}
+      "asset": {},
+      "crest": {}
     }
   },
   "gridDistance": 1,

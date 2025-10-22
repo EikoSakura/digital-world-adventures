@@ -1,0 +1,20 @@
+{
+  "_id": "crestknowledge01",
+  "name": "Knowledge",
+  "type": "crest",
+  "img": "icons/svg/book.svg",
+  "system": {
+    "description": "Pursuit of understanding.\n\nWhenever you make a check to accomplish a task that would be fueled by your crest, or you feel the virtue embodied by your crest filling you up, you gain one automatic success on that check. If you succeed on the check, you regain 1 Digisoul. If that check is a Critical Success, your Digimon may immediately evolve.",
+    "crestType": "knowledge",
+    "iconColor": "purple",
+    "effect": "Whenever you make a check to accomplish a task that would be fueled by your crest, or you feel the virtue embodied by your crest filling you up, you gain one automatic success on that check. If you succeed on the check, you regain 1 Digisoul. If that check is a Critical Success, your Digimon may immediately evolve.",
+    "embodied": false
+  },
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}
