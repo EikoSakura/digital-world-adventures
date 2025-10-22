@@ -1,0 +1,98 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "health": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "energy": {
+          "value": 10,
+          "min": 0,
+          "max": 10
+        },
+        "biography": ""
+      },
+      "attributes": {
+        "attributes": {
+          "strength": {
+            "value": 10
+          },
+          "agility": {
+            "value": 10
+          },
+          "intellect": {
+            "value": 10
+          },
+          "willpower": {
+            "value": 10
+          },
+          "charisma": {
+            "value": 10
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base", "attributes"],
+      "level": 1,
+      "experience": {
+        "value": 0,
+        "max": 100
+      }
+    },
+    "npc": {
+      "templates": ["base", "attributes"],
+      "challenge": 1,
+      "type": ""
+    }
+  },
+  "Item": {
+    "types": ["item", "ability", "equipment", "skill"],
+    "templates": {
+      "base": {
+        "description": ""
+      },
+      "physical": {
+        "quantity": 1,
+        "weight": 0
+      }
+    },
+    "item": {
+      "templates": ["base", "physical"]
+    },
+    "ability": {
+      "templates": ["base"],
+      "cost": {
+        "value": 0,
+        "type": "energy"
+      },
+      "damage": {
+        "value": "",
+        "type": "physical"
+      },
+      "range": "",
+      "duration": "",
+      "target": ""
+    },
+    "equipment": {
+      "templates": ["base", "physical"],
+      "equipped": false,
+      "armor": 0,
+      "bonus": {
+        "strength": 0,
+        "agility": 0,
+        "intellect": 0,
+        "willpower": 0,
+        "charisma": 0
+      }
+    },
+    "skill": {
+      "templates": ["base"],
+      "rank": 0,
+      "attribute": "strength"
+    }
+  }
+}

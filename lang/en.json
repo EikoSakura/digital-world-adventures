@@ -1,0 +1,72 @@
+{
+  "DIGITALWORLD": {
+    "SheetLabels": {
+      "Actor": "Digital World Adventures Actor Sheet",
+      "Item": "Digital World Adventures Item Sheet"
+    },
+    "ActorType": {
+      "Character": "Character",
+      "NPC": "NPC"
+    },
+    "ItemType": {
+      "Item": "Item",
+      "Ability": "Ability",
+      "Equipment": "Equipment",
+      "Skill": "Skill"
+    },
+    "Attributes": {
+      "Strength": "Strength",
+      "Agility": "Agility",
+      "Intellect": "Intellect",
+      "Willpower": "Willpower",
+      "Charisma": "Charisma"
+    },
+    "Resources": {
+      "Health": "Health",
+      "Energy": "Energy",
+      "Experience": "Experience"
+    },
+    "Tabs": {
+      "Attributes": "Attributes",
+      "Items": "Items",
+      "Abilities": "Abilities",
+      "Biography": "Biography",
+      "Description": "Description"
+    },
+    "Labels": {
+      "Level": "Level",
+      "ChallengeRating": "Challenge Rating",
+      "Type": "Type",
+      "Quantity": "Quantity",
+      "Weight": "Weight",
+      "Equipped": "Equipped",
+      "Armor": "Armor",
+      "Rank": "Rank",
+      "Attribute": "Attribute",
+      "Cost": "Cost",
+      "Damage": "Damage",
+      "Range": "Range",
+      "Duration": "Duration",
+      "Target": "Target"
+    },
+    "Buttons": {
+      "CreateItem": "Create Item",
+      "CreateAbility": "Create Ability",
+      "CreateEquipment": "Create Equipment",
+      "CreateSkill": "Create Skill",
+      "Edit": "Edit",
+      "Delete": "Delete"
+    },
+    "DamageTypes": {
+      "Physical": "Physical",
+      "Energy": "Energy",
+      "Digital": "Digital",
+      "Elemental": "Elemental"
+    },
+    "CostTypes": {
+      "Energy": "Energy",
+      "Health": "Health",
+      "None": "None"
+    }
+  }
+}

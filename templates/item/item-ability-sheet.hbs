@@ -1,0 +1,70 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" width="64" height="64"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Ability Name"/></h1>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="description">Description</a>
+    <a class="item" data-tab="attributes">Attributes</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Attributes Tab --}}
+    <div class="tab attributes" data-group="primary" data-tab="attributes">
+      <div class="form-group">
+        <label>Cost Value</label>
+        <input type="text" name="system.cost.value" value="{{system.cost.value}}" data-dtype="Number"/>
+      </div>
+      <div class="form-group">
+        <label>Cost Type</label>
+        <select name="system.cost.type">
+          {{#select system.cost.type}}
+          {{#each costTypes as |label key|}}
+          <option value="{{key}}">{{label}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Damage</label>
+        <input type="text" name="system.damage.value" value="{{system.damage.value}}" placeholder="e.g. 2d6"/>
+      </div>
+      <div class="form-group">
+        <label>Damage Type</label>
+        <select name="system.damage.type">
+          {{#select system.damage.type}}
+          {{#each damageTypes as |label key|}}
+          <option value="{{key}}">{{label}}</option>
+          {{/each}}
+          {{/select}}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Range</label>
+        <input type="text" name="system.range" value="{{system.range}}" placeholder="e.g. 30 ft"/>
+      </div>
+      <div class="form-group">
+        <label>Duration</label>
+        <input type="text" name="system.duration" value="{{system.duration}}" placeholder="e.g. 1 minute"/>
+      </div>
+      <div class="form-group">
+        <label>Target</label>
+        <input type="text" name="system.target" value="{{system.target}}" placeholder="e.g. Single creature"/>
+      </div>
+    </div>
+
+  </section>
+</form>

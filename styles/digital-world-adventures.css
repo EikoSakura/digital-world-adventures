@@ -1,0 +1,355 @@
+/* Digital World Adventures System Styles */
+
+/* ========== Global Styles ========== */
+.digital-world-adventures {
+  font-family: 'Signika', sans-serif;
+}
+
+.digital-world-adventures .window-content {
+  background: #f5f5f5;
+  padding: 5px;
+}
+
+.digital-world-adventures .rollable:hover {
+  color: #ff6400;
+  cursor: pointer;
+}
+
+/* ========== Flexbox Utilities ========== */
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flexcol {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+/* ========== Sheet Header ========== */
+.digital-world-adventures .sheet-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-bottom: 2px solid #444;
+  margin-bottom: 10px;
+}
+
+.digital-world-adventures .sheet-header .profile-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.digital-world-adventures .sheet-header .header-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.digital-world-adventures .sheet-header h1.charname {
+  height: 50px;
+  margin: 0;
+  padding: 5px 0;
+  border-bottom: 0;
+}
+
+.digital-world-adventures .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 1px solid transparent;
+  font-size: 2em;
+  font-weight: bold;
+  background: transparent;
+}
+
+/* ========== Resources ========== */
+.digital-world-adventures .resources {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.digital-world-adventures .resource {
+  flex: 0 0 auto;
+  margin: 5px 10px;
+  text-align: center;
+}
+
+.digital-world-adventures .resource-label {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin-bottom: 2px;
+  display: block;
+}
+
+.digital-world-adventures .resource-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.digital-world-adventures .resource input {
+  width: 50px;
+  text-align: center;
+  border: 1px solid #999;
+  background: white;
+}
+
+.digital-world-adventures .resource-max {
+  font-weight: bold;
+}
+
+/* ========== Sheet Tabs ========== */
+.digital-world-adventures .tabs {
+  height: 40px;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+
+.digital-world-adventures .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.digital-world-adventures .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+/* ========== Sheet Body ========== */
+.digital-world-adventures .sheet-body {
+  overflow: hidden;
+  padding: 10px;
+}
+
+.digital-world-adventures .sheet-body .tab {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* ========== Attributes ========== */
+.digital-world-adventures .attributes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.digital-world-adventures .attribute {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #999;
+  border-radius: 3px;
+}
+
+.digital-world-adventures .attribute-label {
+  flex: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+
+.digital-world-adventures .attribute input {
+  flex: 0 0 60px;
+  text-align: center;
+  margin-right: 10px;
+  border: 1px solid #999;
+  background: white;
+}
+
+.digital-world-adventures .attribute-mod {
+  flex: 0 0 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: #444;
+}
+
+/* ========== Items List ========== */
+.digital-world-adventures .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.digital-world-adventures .items-list .item-header {
+  font-weight: bold;
+  border-bottom: 2px solid #444;
+  margin-bottom: 5px;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.digital-world-adventures .items-list .item {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 2px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: white;
+}
+
+.digital-world-adventures .items-list .item:hover {
+  box-shadow: 0 0 5px #ff6400;
+}
+
+.digital-world-adventures .item-name {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.digital-world-adventures .item-image {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.digital-world-adventures .item-image img {
+  border: none;
+  border-radius: 3px;
+}
+
+.digital-world-adventures .item h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+.digital-world-adventures .item-quantity,
+.digital-world-adventures .item-weight,
+.digital-world-adventures .item-equipped,
+.digital-world-adventures .item-armor,
+.digital-world-adventures .item-rank,
+.digital-world-adventures .item-attribute,
+.digital-world-adventures .item-cost,
+.digital-world-adventures .item-damage {
+  flex: 0 0 80px;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.digital-world-adventures .item-controls {
+  flex: 0 0 80px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.digital-world-adventures .item-control {
+  font-size: 0.8em;
+  margin-left: 5px;
+  color: #444;
+}
+
+.digital-world-adventures .item-control:hover {
+  color: #ff6400;
+}
+
+/* ========== Effects ========== */
+.digital-world-adventures .effects-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.digital-world-adventures .effect {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 2px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: white;
+}
+
+.digital-world-adventures .effect-image {
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.digital-world-adventures .effect-name {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+}
+
+.digital-world-adventures .effect-controls {
+  flex: 0 0 80px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.digital-world-adventures .effect-control {
+  font-size: 0.8em;
+  margin-left: 5px;
+  color: #444;
+  cursor: pointer;
+}
+
+.digital-world-adventures .effect-control:hover {
+  color: #ff6400;
+}
+
+/* ========== Form Groups ========== */
+.digital-world-adventures .form-group {
+  margin-bottom: 10px;
+}
+
+.digital-world-adventures .form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.digital-world-adventures .form-group input[type="text"],
+.digital-world-adventures .form-group input[type="number"],
+.digital-world-adventures .form-group select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  background: white;
+}
+
+.digital-world-adventures .form-group input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+/* ========== Editor ========== */
+.digital-world-adventures .editor {
+  height: 300px;
+}
+
+/* ========== Headings ========== */
+.digital-world-adventures h3 {
+  border-bottom: 1px solid #444;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}

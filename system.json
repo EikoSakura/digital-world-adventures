@@ -1,0 +1,48 @@
+{
+  "id": "digital-world-adventures",
+  "title": "Digital World Adventures",
+  "description": "A custom TTRPG system for exploring digital worlds and adventures.",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Digital World Adventures Team"
+    }
+  ],
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "esmodules": [
+    "module/digital-world-adventures.mjs"
+  ],
+  "styles": [
+    "styles/digital-world-adventures.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {},
+      "npc": {}
+    },
+    "Item": {
+      "item": {},
+      "ability": {},
+      "equipment": {},
+      "skill": {}
+    }
+  },
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "energy",
+  "url": "https://github.com/EikoSakura/digital-world-adventures",
+  "manifest": "https://github.com/EikoSakura/digital-world-adventures/releases/latest/download/system.json",
+  "download": "https://github.com/EikoSakura/digital-world-adventures/archive/refs/heads/main.zip",
+  "license": "LICENSE"
+}
