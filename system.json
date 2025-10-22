@@ -123,12 +123,15 @@
       "crest": {}
     }
   },
-  "gridDistance": 1,
-  "gridUnits": "zone",
+  "grid": {
+    "distance": 1,
+    "units": "zone"
+  },
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "digisoul",
   "url": "https://github.com/EikoSakura/digital-world-adventures",
-  "manifest": "https://github.com/EikoSakura/digital-world-adventures/releases/latest/download/system.json",
-  "download": "https://github.com/EikoSakura/digital-world-adventures/archive/refs/heads/main.zip",
-  "license": "LICENSE"
+  "manifest": "https://raw.githubusercontent.com/EikoSakura/digital-world-adventures/claude/create-foundry-system-011CUNdbHjVnzAHu24qHTKpM/system.json",
+  "download": "https://github.com/EikoSakura/digital-world-adventures/archive/refs/heads/claude/create-foundry-system-011CUNdbHjVnzAHu24qHTKpM.zip",
+  "license": "LICENSE",
+  "readme": "https://raw.githubusercontent.com/EikoSakura/digital-world-adventures/claude/create-foundry-system-011CUNdbHjVnzAHu24qHTKpM/README.md"
 }
