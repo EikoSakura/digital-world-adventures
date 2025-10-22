@@ -1,0 +1,40 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <div class="header-fields">
+      <h1><input name="name" type="text" value="{{actor.name}}" placeholder="NPC Name"/></h1>
+      <div class="resources flexrow">
+        <div class="resource">
+          <label>HP</label>
+          <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number"/>
+          / {{system.hp.max}}
+        </div>
+        <div class="resource">
+          <label>Challenge</label>
+          <input type="text" name="system.challenge" value="{{system.challenge}}" data-dtype="Number"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="stats">Stats</a>
+    <a class="item" data-tab="bio">Biography</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab stats" data-group="primary" data-tab="stats">
+      <h3>Parameters</h3>
+      {{#each system.parameters as |param key|}}
+      <div class="parameter flexrow">
+        <label>{{param.label}}</label>
+        <input type="text" name="system.parameters.{{key}}.value" value="{{param.value}}" data-dtype="Number"/>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="tab bio" data-group="primary" data-tab="bio">
+      {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+    </div>
+  </section>
+</form>

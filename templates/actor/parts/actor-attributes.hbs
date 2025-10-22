@@ -1,0 +1,9 @@
+<div class="attributes-list">
+  {{#each system.attributes as |attribute key|}}
+  <div class="attribute flexrow">
+    <label class="attribute-label">{{attribute.label}}</label>
+    <input type="text" name="system.attributes.{{key}}.value" value="{{attribute.value}}" data-dtype="Number"/>
+    <span class="attribute-mod">{{#if (gt attribute.mod 0)}}+{{/if}}{{attribute.mod}}</span>
+  </div>
+  {{/each}}
+</div>

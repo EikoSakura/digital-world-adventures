@@ -1,0 +1,125 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    <div class="header-fields">
+      <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Digimon Name"/></h1>
+      <div class="digimon-info">
+        <input type="text" name="system.species" value="{{system.species}}" placeholder="Species"/>
+        <select name="system.stage">
+          <option value="baby1" {{#if (eq system.stage "baby1")}}selected{{/if}}>Baby I</option>
+          <option value="baby2" {{#if (eq system.stage "baby2")}}selected{{/if}}>Baby II</option>
+          <option value="child" {{#if (eq system.stage "child")}}selected{{/if}}>Child</option>
+          <option value="adult" {{#if (eq system.stage "adult")}}selected{{/if}}>Adult</option>
+          <option value="perfect" {{#if (eq system.stage "perfect")}}selected{{/if}}>Perfect</option>
+          <option value="ultimate" {{#if (eq system.stage "ultimate")}}selected{{/if}}>Ultimate</option>
+          <option value="superUltimate" {{#if (eq system.stage "superUltimate")}}selected{{/if}}>Super Ultimate</option>
+        </select>
+      </div>
+      <div class="resources flexrow">
+        <div class="resource">
+          <label>HP</label>
+          <input type="text" name="system.hp.value" value="{{system.hp.value}}" data-dtype="Number"/>
+          / {{system.hp.max}}
+        </div>
+        <div class="resource">
+          <label>Digisoul</label>
+          <input type="text" name="system.digisoul.value" value="{{system.digisoul.value}}" data-dtype="Number"/>
+          / {{system.digisoul.max}}
+        </div>
+      </div>
+      <div class="digimon-attrs flexrow">
+        <select name="system.attribute">
+          <option value="free">Free</option>
+          <option value="vaccine" {{#if (eq system.attribute "vaccine")}}selected{{/if}}>Vaccine</option>
+          <option value="data" {{#if (eq system.attribute "data")}}selected{{/if}}>Data</option>
+          <option value="virus" {{#if (eq system.attribute "virus")}}selected{{/if}}>Virus</option>
+        </select>
+        <select name="system.element">
+          <option value="neutral">Neutral</option>
+          <option value="fire" {{#if (eq system.element "fire")}}selected{{/if}}>Fire</option>
+          <option value="water" {{#if (eq system.element "water")}}selected{{/if}}>Water</option>
+          <option value="plant" {{#if (eq system.element "plant")}}selected{{/if}}>Plant</option>
+          <option value="electric" {{#if (eq system.element "electric")}}selected{{/if}}>Electric</option>
+          <option value="wind" {{#if (eq system.element "wind")}}selected{{/if}}>Wind</option>
+          <option value="earth" {{#if (eq system.element "earth")}}selected{{/if}}>Earth</option>
+          <option value="light" {{#if (eq system.element "light")}}selected{{/if}}>Light</option>
+          <option value="dark" {{#if (eq system.element "dark")}}selected{{/if}}>Dark</option>
+        </select>
+      </div>
+      <div class="defenses flexrow">
+        <div><label>Defense:</label> {{system.defense.value}}</div>
+        <div><label>Magic Defense:</label> {{system.magicDefense.value}}</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="stats">Stats</a>
+    <a class="item" data-tab="attacks">Attacks</a>
+    <a class="item" data-tab="bio">Biography</a>
+  </nav>
+
+  <section class="sheet-body">
+    <div class="tab stats" data-group="primary" data-tab="stats">
+      <h3>Parameters</h3>
+      {{#each system.parameters as |param key|}}
+      <div class="parameter flexrow">
+        <label>{{param.label}}</label>
+        <input type="text" name="system.parameters.{{key}}.value" value="{{param.value}}" data-dtype="Number"/>
+      </div>
+      {{/each}}
+
+      <h3>Skills</h3>
+      {{#each system.skills as |category catKey|}}
+      <h4>{{catKey}}</h4>
+      {{#each category as |skill skillKey|}}
+      <div class="skill flexrow">
+        <label>{{skill.label}}</label>
+        <input type="text" name="system.skills.{{catKey}}.{{skillKey}}.value" value="{{skill.value}}" data-dtype="Number"/>
+      </div>
+      {{/each}}
+      {{/each}}
+    </div>
+
+    <div class="tab attacks" data-group="primary" data-tab="attacks">
+      <h3>Attacks</h3>
+      <div class="item-controls">
+        <a class="item-create" data-type="attack">Add Attack</a>
+      </div>
+      <ol class="items-list">
+        {{#each attacks as |item|}}
+        <li class="item" data-item-id="{{item._id}}">
+          <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+          <h4 class="rollable" data-roll-type="attack">{{item.name}}</h4>
+          <div>{{item.system.intensity}} damage</div>
+          <div class="item-controls">
+            <a class="item-control item-edit"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+
+      <h3>Abilities</h3>
+      <div class="item-controls">
+        <a class="item-create" data-type="ability">Add Ability</a>
+      </div>
+      <ol class="items-list">
+        {{#each abilities as |item|}}
+        <li class="item" data-item-id="{{item._id}}">
+          <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
+          <h4>{{item.name}}</h4>
+          <div class="item-controls">
+            <a class="item-control item-edit"><i class="fas fa-edit"></i></a>
+            <a class="item-control item-delete"><i class="fas fa-trash"></i></a>
+          </div>
+        </li>
+        {{/each}}
+      </ol>
+    </div>
+
+    <div class="tab bio" data-group="primary" data-tab="bio">
+      {{editor system.biography target="system.biography" button=true owner=owner editable=editable}}
+    </div>
+  </section>
+</form>

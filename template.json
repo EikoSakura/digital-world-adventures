@@ -1,0 +1,288 @@
+{
+  "Actor": {
+    "types": ["tamer", "digimon", "npc"],
+    "templates": {
+      "base": {
+        "hp": {
+          "value": 3,
+          "max": 3,
+          "base": 3
+        },
+        "digisoul": {
+          "value": 3,
+          "max": 3
+        },
+        "initiative": {
+          "value": 0,
+          "bonus": 0
+        },
+        "defense": {
+          "value": 1
+        },
+        "magicDefense": {
+          "value": 1
+        },
+        "biography": ""
+      },
+      "parameters": {
+        "parameters": {
+          "power": {
+            "value": 0,
+            "label": "Power"
+          },
+          "agility": {
+            "value": 0,
+            "label": "Agility"
+          },
+          "vigor": {
+            "value": 0,
+            "label": "Vigor"
+          },
+          "intellect": {
+            "value": 0,
+            "label": "Intellect"
+          },
+          "spirit": {
+            "value": 0,
+            "label": "Spirit"
+          }
+        }
+      },
+      "skills": {
+        "skills": {
+          "combat": {
+            "command": { "value": 0, "label": "Command" },
+            "evade": { "value": 0, "label": "Evade" },
+            "fight": { "value": 0, "label": "Fight" },
+            "protect": { "value": 0, "label": "Protect" },
+            "melee": { "value": 0, "label": "Melee" },
+            "projectile": { "value": 0, "label": "Projectile" }
+          },
+          "knowledge": {
+            "craft": { "value": 0, "label": "Craft" },
+            "lore": { "value": 0, "label": "Lore" },
+            "medicine": { "value": 0, "label": "Medicine" },
+            "technology": { "value": 0, "label": "Technology" }
+          },
+          "social": {
+            "empathy": { "value": 0, "label": "Empathy" },
+            "intimidation": { "value": 0, "label": "Intimidation" },
+            "perform": { "value": 0, "label": "Perform" },
+            "persuasion": { "value": 0, "label": "Persuasion" }
+          },
+          "survival": {
+            "alert": { "value": 0, "label": "Alert" },
+            "athletics": { "value": 0, "label": "Athletics" },
+            "nature": { "value": 0, "label": "Nature" },
+            "stealth": { "value": 0, "label": "Stealth" }
+          }
+        }
+      }
+    },
+    "tamer": {
+      "templates": ["base", "parameters", "skills"],
+      "crest": {
+        "type": "courage",
+        "embodied": false
+      },
+      "bits": 500,
+      "partnerId": "",
+      "reactiveActionUsed": false
+    },
+    "digimon": {
+      "templates": ["base", "parameters", "skills"],
+      "species": "",
+      "stage": "baby1",
+      "attribute": "free",
+      "element": "neutral",
+      "type": "beast",
+      "personality": "fighter",
+      "movementTypes": ["land"],
+      "tamerId": "",
+      "evolution": {
+        "baby1": {
+          "species": "",
+          "unlocked": true,
+          "baseHp": 1,
+          "parameters": {
+            "power": { "min": 0, "max": 2 },
+            "agility": { "min": 0, "max": 2 },
+            "vigor": { "min": 0, "max": 2 },
+            "intellect": { "min": 0, "max": 2 },
+            "spirit": { "min": 0, "max": 2 }
+          }
+        },
+        "baby2": {
+          "species": "",
+          "unlocked": false,
+          "baseHp": 2,
+          "parameters": {
+            "power": { "min": 0, "max": 3 },
+            "agility": { "min": 0, "max": 3 },
+            "vigor": { "min": 0, "max": 3 },
+            "intellect": { "min": 0, "max": 3 },
+            "spirit": { "min": 0, "max": 3 }
+          }
+        },
+        "child": {
+          "species": "",
+          "unlocked": false,
+          "baseHp": 3,
+          "parameters": {
+            "power": { "min": 0, "max": 4 },
+            "agility": { "min": 0, "max": 4 },
+            "vigor": { "min": 0, "max": 4 },
+            "intellect": { "min": 0, "max": 4 },
+            "spirit": { "min": 0, "max": 4 }
+          }
+        },
+        "adult": {
+          "species": "",
+          "unlocked": false,
+          "baseHp": 4,
+          "parameters": {
+            "power": { "min": 0, "max": 5 },
+            "agility": { "min": 0, "max": 5 },
+            "vigor": { "min": 0, "max": 5 },
+            "intellect": { "min": 0, "max": 5 },
+            "spirit": { "min": 0, "max": 5 }
+          }
+        },
+        "perfect": {
+          "species": "",
+          "unlocked": false,
+          "baseHp": 5,
+          "parameters": {
+            "power": { "min": 0, "max": 6 },
+            "agility": { "min": 0, "max": 6 },
+            "vigor": { "min": 0, "max": 6 },
+            "intellect": { "min": 0, "max": 6 },
+            "spirit": { "min": 0, "max": 6 }
+          }
+        },
+        "ultimate": {
+          "species": "",
+          "unlocked": false,
+          "baseHp": 6,
+          "parameters": {
+            "power": { "min": 0, "max": 7 },
+            "agility": { "min": 0, "max": 7 },
+            "vigor": { "min": 0, "max": 7 },
+            "intellect": { "min": 0, "max": 7 },
+            "spirit": { "min": 0, "max": 7 }
+          }
+        },
+        "superUltimate": {
+          "species": "",
+          "unlocked": false,
+          "baseHp": 7,
+          "parameters": {
+            "power": { "min": 0, "max": 8 },
+            "agility": { "min": 0, "max": 8 },
+            "vigor": { "min": 0, "max": 8 },
+            "intellect": { "min": 0, "max": 8 },
+            "spirit": { "min": 0, "max": 8 }
+          }
+        }
+      },
+      "specialEvolution": {
+        "type": "none",
+        "details": ""
+      },
+      "statusAilments": {
+        "blind": false,
+        "bugged": false,
+        "burned": false,
+        "charmed": false,
+        "confused": false,
+        "corruption": 0,
+        "dot": false,
+        "frozen": false,
+        "panicked": false,
+        "paralyzed": false,
+        "poisoned": false,
+        "stunned": false
+      },
+      "reactiveActionUsed": false
+    },
+    "npc": {
+      "templates": ["base", "parameters", "skills"],
+      "challenge": 1,
+      "npcType": "enemy",
+      "statusAilments": {
+        "blind": false,
+        "bugged": false,
+        "burned": false,
+        "charmed": false,
+        "confused": false,
+        "corruption": 0,
+        "dot": false,
+        "frozen": false,
+        "panicked": false,
+        "paralyzed": false,
+        "poisoned": false,
+        "stunned": false
+      },
+      "reactiveActionUsed": false
+    }
+  },
+  "Item": {
+    "types": ["talent", "attack", "ability", "equipment", "consumable", "asset"],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    },
+    "talent": {
+      "templates": ["base"],
+      "category": "tamer",
+      "prerequisites": "",
+      "effect": "",
+      "active": false
+    },
+    "attack": {
+      "templates": ["base"],
+      "attackType": "basic",
+      "damageType": "physical",
+      "range": "close",
+      "accuracy": {
+        "parameter": "power",
+        "skill": "melee"
+      },
+      "intensity": 2,
+      "effects": []
+    },
+    "ability": {
+      "templates": ["base"],
+      "abilityType": "passive",
+      "trigger": "",
+      "effect": ""
+    },
+    "equipment": {
+      "templates": ["base"],
+      "equipmentType": "chip",
+      "cost": 400,
+      "equipped": false,
+      "bonus": {
+        "type": "accuracy",
+        "value": 1
+      }
+    },
+    "consumable": {
+      "templates": ["base"],
+      "consumableType": "hp",
+      "cost": 100,
+      "quantity": 1,
+      "effect": {
+        "type": "heal",
+        "value": "1d6"
+      }
+    },
+    "asset": {
+      "templates": ["base"],
+      "assetType": "survival",
+      "cost": 50,
+      "quantity": 1
+    }
+  }
+}
