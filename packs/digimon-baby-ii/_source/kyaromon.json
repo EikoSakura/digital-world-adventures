@@ -1,0 +1,152 @@
+{
+  "_id": "kyaromon00000001",
+  "name": "Kyaromon",
+  "type": "digimon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "species": "Kyaromon",
+    "stage": "baby2",
+    "attribute": "free",
+    "element": "neutral",
+    "type": "beast",
+    "personality": "fighter",
+    "movementTypes": ["land"],
+    "hp": {
+      "value": 4,
+      "max": 4,
+      "base": 4
+    },
+    "digisoul": {
+      "value": 3,
+      "max": 3
+    },
+    "parameters": {
+      "power": {
+        "value": 1,
+        "label": "Power"
+      },
+      "agility": {
+        "value": 1,
+        "label": "Agility"
+      },
+      "vigor": {
+        "value": 1,
+        "label": "Vigor"
+      },
+      "intellect": {
+        "value": 1,
+        "label": "Intellect"
+      },
+      "spirit": {
+        "value": 1,
+        "label": "Spirit"
+      }
+    },
+    "evolution": {
+      "baby2": {
+        "species": "Kyaromon",
+        "unlocked": true,
+        "baseHp": 4,
+        "parameters": {
+          "power": { "min": 1, "max": 3 },
+          "agility": { "min": 1, "max": 2 },
+          "vigor": { "min": 1, "max": 2 },
+          "intellect": { "min": 1, "max": 2 },
+          "spirit": { "min": 1, "max": 2 }
+        }
+      }
+    },
+    "biography": "A Lesser Digimon that vigorously grew a tail. As it is brimming with curiosity, it takes an interest in anything, and has a habit of rushing for whatever caught its interest. The inside of its body has become mostly empty, and because it is elastic like a rubber ball, its 'Shippo Swing', in which it puts its strength into its tail and strikes, seems to have the force to blow away even a Child Digimon."
+  },
+  "items": [
+    {
+      "_id": "kyaromonability001",
+      "name": "Bouncy Ball",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Kyaromon can bounce as high as it wants, it gains the Fly Movement Type.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Kyaromon can bounce as high as it wants, it gains the Fly Movement Type."
+      }
+    },
+    {
+      "_id": "kyaromonability002",
+      "name": "Forceful Tail",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Attacks with Tail in their name and Shippo Swing gain +1 to its Intensity.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Attacks with Tail in their name and Shippo Swing gain +1 to its Intensity."
+      }
+    },
+    {
+      "_id": "kyaromonability003",
+      "name": "Momentum",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Kyaromon can spend their movement to bounce around and charge momentum. On its turn, Kyaromon can give up its movement to gain a momentum charge. On its next Melee attack, it gains a number of bonus damage dice equal to its momentum charges. When it uses an attack, reset its charges to 0.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Give up movement to gain momentum charge. Gain bonus damage dice equal to charges on next Melee attack. Reset charges after attack."
+      }
+    },
+    {
+      "_id": "kyaromonattack001",
+      "name": "Tail Whip",
+      "type": "attack",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "A basic tail whip attack.",
+        "attackType": "basic",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "agility",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": []
+      }
+    },
+    {
+      "_id": "kyaromonattack002",
+      "name": "Shippo",
+      "type": "attack",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "A powerful tail swing attack. Surge 1: If the target is a Child Digimon or less you may push it to another zone.",
+        "attackType": "special",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "power",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": ["Surge 1: If the target is a Child Digimon or less you may push it to another zone."]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

@@ -1,0 +1,152 @@
+{
+  "_id": "puyoyomon0000001",
+  "name": "Puyoyomon",
+  "type": "digimon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "species": "Puyoyomon",
+    "stage": "baby2",
+    "attribute": "free",
+    "element": "water",
+    "type": "slime",
+    "personality": "fighter",
+    "movementTypes": ["float", "swim"],
+    "hp": {
+      "value": 4,
+      "max": 4,
+      "base": 4
+    },
+    "digisoul": {
+      "value": 3,
+      "max": 3
+    },
+    "parameters": {
+      "power": {
+        "value": 1,
+        "label": "Power"
+      },
+      "agility": {
+        "value": 1,
+        "label": "Agility"
+      },
+      "vigor": {
+        "value": 1,
+        "label": "Vigor"
+      },
+      "intellect": {
+        "value": 1,
+        "label": "Intellect"
+      },
+      "spirit": {
+        "value": 1,
+        "label": "Spirit"
+      }
+    },
+    "evolution": {
+      "baby2": {
+        "species": "Puyoyomon",
+        "unlocked": true,
+        "baseHp": 4,
+        "parameters": {
+          "power": { "min": 1, "max": 2 },
+          "agility": { "min": 1, "max": 2 },
+          "vigor": { "min": 1, "max": 2 },
+          "intellect": { "min": 1, "max": 2 },
+          "spirit": { "min": 1, "max": 3 }
+        }
+      }
+    },
+    "biography": "Puyoyomon took in jellyfish data and grew several tentacles by copying the biological features of the jellyfish. Puyoyomon has grown its own preferences, and once it sticks to something that it likes, it will not let go."
+  },
+  "items": [
+    {
+      "_id": "puyoyomonability001",
+      "name": "Brimming Curiosity",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Puyoyomon automatically lets go of a target it is grappling at the end of its next turn. Puyoyomon gains +1 bonus dice on checks to search for new and exciting things.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Automatically lets go of grappling targets at end of next turn. Gains +1 bonus dice to search for new things."
+      }
+    },
+    {
+      "_id": "puyoyomonability002",
+      "name": "Protective Shock",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "When a Human or a Digimon approaches, or uses a close range attack against the target Puyoyomon is grappling, Puyoyomon may spend its reaction to use an electric attack against the triggering Human or Digimon.",
+        "abilityType": "reactive",
+        "trigger": "When someone attacks grappled target",
+        "effect": "Use electric attack against the triggering Human or Digimon."
+      }
+    },
+    {
+      "_id": "puyoyomonability003",
+      "name": "Sticky Tentacles",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "When Puyoyomon attaches to a target they are attached until they decide to release the target. When an attached target moves, Puyoyomon moves with them.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "When attached to a target, move with them. Attached until Puyoyomon releases."
+      }
+    },
+    {
+      "_id": "puyoyomonattack001",
+      "name": "Tentacle",
+      "type": "attack",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "A basic tentacle attack. Surge 1: This Digimon attaches to the target.",
+        "attackType": "basic",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "agility",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": ["Surge 1: This Digimon attaches to the target."]
+      }
+    },
+    {
+      "_id": "puyoyomonattack002",
+      "name": "Zone Pachipachi",
+      "type": "attack",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "An area electric shock attack. Surge 4: The target is Paralyzed.",
+        "attackType": "special",
+        "damageType": "magical",
+        "element": "electric",
+        "range": "area",
+        "accuracy": {
+          "parameter": "spirit",
+          "skill": "projectile"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "intellect",
+          "value": 0
+        },
+        "effects": ["Surge 4: The target is Paralyzed."]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}

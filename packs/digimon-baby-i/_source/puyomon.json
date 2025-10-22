@@ -1,0 +1,156 @@
+{
+  "_id": "puyomon000000001",
+  "name": "Puyomon",
+  "type": "digimon",
+  "img": "icons/svg/mystery-man.svg",
+  "system": {
+    "species": "Puyomon",
+    "stage": "baby1",
+    "attribute": "free",
+    "element": "water",
+    "type": "slime",
+    "personality": "fighter",
+    "movementTypes": ["float", "swim"],
+    "hp": {
+      "value": 2,
+      "max": 2,
+      "base": 2
+    },
+    "digisoul": {
+      "value": 3,
+      "max": 3
+    },
+    "parameters": {
+      "power": {
+        "value": 1,
+        "label": "Power"
+      },
+      "agility": {
+        "value": 1,
+        "label": "Agility"
+      },
+      "vigor": {
+        "value": 1,
+        "label": "Vigor"
+      },
+      "intellect": {
+        "value": 1,
+        "label": "Intellect"
+      },
+      "spirit": {
+        "value": 1,
+        "label": "Spirit"
+      }
+    },
+    "evolution": {
+      "baby1": {
+        "species": "Puyomon",
+        "unlocked": true,
+        "baseHp": 2,
+        "parameters": {
+          "power": { "min": 1, "max": 1 },
+          "agility": { "min": 1, "max": 2 },
+          "vigor": { "min": 1, "max": 1 },
+          "intellect": { "min": 1, "max": 1 },
+          "spirit": { "min": 1, "max": 2 }
+        }
+      }
+    },
+    "biography": "A soft and sticky Slime Digimon that was discovered in the 'Net Ocean'. Its single, lens-like eye lacks emotional expression, so you can't tell what it's thinking, but it drifts through the sky or the sea, trying to stick to objects and other Digimon with its tentacles."
+  },
+  "items": [
+    {
+      "_id": "puyomonability001",
+      "name": "Eye Lens",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Puyomon's emotions cannot be detected by non-digital means.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Puyomon's emotions cannot be detected by non-digital means."
+      }
+    },
+    {
+      "_id": "puyomonability002",
+      "name": "Shocking Communication",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "Puyomon cannot speak. As long as it is grappled or grappling a target, Puyomon can speak to that specific target.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "Puyomon cannot speak. As long as it is grappled or grappling a target, Puyomon can speak to that specific target."
+      }
+    },
+    {
+      "_id": "puyomonability003",
+      "name": "Sticky Tentacles",
+      "type": "ability",
+      "img": "icons/svg/item-bag.svg",
+      "system": {
+        "description": "When Puyomon attaches to a target they are attached until they decide to release the target. When an attached target moves, Puyomon moves with them.",
+        "abilityType": "passive",
+        "trigger": "",
+        "effect": "When Puyomon attaches to a target they are attached until they decide to release the target. When an attached target moves, Puyomon moves with them."
+      }
+    },
+    {
+      "_id": "puyomonattack001",
+      "name": "Tentacle",
+      "type": "attack",
+      "img": "icons/svg/sword.svg",
+      "system": {
+        "description": "A basic tentacle attack. Surge 1: This Digimon attaches itself to the target.",
+        "attackType": "basic",
+        "damageType": "physical",
+        "element": "neutral",
+        "range": "close",
+        "accuracy": {
+          "parameter": "agility",
+          "skill": "melee"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "power",
+          "value": 0
+        },
+        "effects": ["Surge 1: This Digimon attaches itself to the target."]
+      }
+    },
+    {
+      "_id": "puyomonattack002",
+      "name": "Pachipachi Gas",
+      "type": "attack",
+      "img": "icons/svg/explosion.svg",
+      "system": {
+        "description": "An electric gas attack. This attack can only be used if Puyomon is grappling the target. If more than one Puyomon use this attack in the same round, the range of each attack after the first becomes Area. Surge 4: Targets that take damage are paralyzed.",
+        "attackType": "special",
+        "damageType": "magical",
+        "element": "electric",
+        "range": "close",
+        "accuracy": {
+          "parameter": "intellect",
+          "skill": "projectile"
+        },
+        "intensity": 1,
+        "bonus": {
+          "parameter": "spirit",
+          "value": 0
+        },
+        "effects": [
+          "This attack can only be used if Puyomon is grappling the target.",
+          "If more than one Puyomon use this attack in the same round, the range of each attack after the first becomes Area.",
+          "Surge 4: Targets that take damage are paralyzed."
+        ]
+      }
+    }
+  ],
+  "effects": [],
+  "folder": null,
+  "sort": 0,
+  "ownership": {
+    "default": 0
+  },
+  "flags": {}
+}
