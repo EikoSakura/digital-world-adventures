@@ -123,8 +123,10 @@
       "crest": {}
     }
   },
-  "gridDistance": 1,
-  "gridUnits": "zone",
+  "grid": {
+    "distance": 1,
+    "units": "zone"
+  },
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "digisoul",
   "url": "https://github.com/EikoSakura/digital-world-adventures",
