@@ -5,68 +5,137 @@
       "Item": "Digital World Adventures Item Sheet"
     },
     "ActorType": {
-      "Character": "Character",
-      "NPC": "NPC"
+      "tamer": "Tamer",
+      "digimon": "Digimon",
+      "npc": "NPC"
     },
     "ItemType": {
-      "Item": "Item",
-      "Ability": "Ability",
-      "Equipment": "Equipment",
-      "Skill": "Skill"
+      "talent": "Talent",
+      "attack": "Attack",
+      "ability": "Ability",
+      "equipment": "Equipment",
+      "consumable": "Consumable",
+      "asset": "Asset",
+      "crest": "Crest"
+    },
+    "Parameters": {
+      "power": "Power",
+      "agility": "Agility",
+      "vigor": "Vigor",
+      "intellect": "Intellect",
+      "spirit": "Spirit"
+    },
+    "Skills": {
+      "combat": "Combat",
+      "knowledge": "Knowledge",
+      "social": "Social",
+      "survival": "Survival",
+      "command": "Command",
+      "evade": "Evade",
+      "fight": "Fight",
+      "protect": "Protect",
+      "melee": "Melee",
+      "projectile": "Projectile",
+      "craft": "Craft",
+      "lore": "Lore",
+      "medicine": "Medicine",
+      "technology": "Technology",
+      "empathy": "Empathy",
+      "intimidation": "Intimidation",
+      "perform": "Perform",
+      "persuasion": "Persuasion",
+      "alert": "Alert",
+      "athletics": "Athletics",
+      "nature": "Nature",
+      "stealth": "Stealth"
+    },
+    "Stages": {
+      "baby1": "Baby I",
+      "baby2": "Baby II",
+      "child": "Child",
+      "adult": "Adult",
+      "perfect": "Perfect",
+      "ultimate": "Ultimate",
+      "superUltimate": "Super Ultimate"
     },
     "Attributes": {
-      "Strength": "Strength",
-      "Agility": "Agility",
-      "Intellect": "Intellect",
-      "Willpower": "Willpower",
-      "Charisma": "Charisma"
+      "free": "Free",
+      "vaccine": "Vaccine",
+      "data": "Data",
+      "virus": "Virus"
+    },
+    "Elements": {
+      "neutral": "Neutral",
+      "fire": "Fire",
+      "water": "Water",
+      "plant": "Plant",
+      "electric": "Electric",
+      "wind": "Wind",
+      "earth": "Earth",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "Crests": {
+      "courage": "Courage",
+      "friendship": "Friendship",
+      "love": "Love",
+      "knowledge": "Knowledge",
+      "sincerity": "Sincerity",
+      "reliability": "Reliability",
+      "hope": "Hope",
+      "light": "Light",
+      "kindness": "Kindness"
     },
     "Resources": {
-      "Health": "Health",
-      "Energy": "Energy",
-      "Experience": "Experience"
+      "hp": "HP",
+      "digisoul": "Digisoul",
+      "bits": "Bits"
     },
     "Tabs": {
-      "Attributes": "Attributes",
-      "Items": "Items",
-      "Abilities": "Abilities",
-      "Biography": "Biography",
-      "Description": "Description"
+      "tamer": "Tamer",
+      "partner": "Partner",
+      "stats": "Stats",
+      "items": "Items",
+      "attacks": "Attacks",
+      "abilities": "Abilities",
+      "biography": "Biography",
+      "description": "Description"
     },
     "Labels": {
-      "Level": "Level",
-      "ChallengeRating": "Challenge Rating",
-      "Type": "Type",
-      "Quantity": "Quantity",
-      "Weight": "Weight",
-      "Equipped": "Equipped",
-      "Armor": "Armor",
-      "Rank": "Rank",
-      "Attribute": "Attribute",
-      "Cost": "Cost",
-      "Damage": "Damage",
-      "Range": "Range",
-      "Duration": "Duration",
-      "Target": "Target"
+      "species": "Species",
+      "stage": "Stage",
+      "attribute": "Attribute",
+      "element": "Element",
+      "type": "Type",
+      "personality": "Personality",
+      "crest": "Crest",
+      "defense": "Defense",
+      "magicDefense": "Magic Defense",
+      "quantity": "Quantity",
+      "equipped": "Equipped",
+      "cost": "Cost",
+      "damage": "Damage",
+      "intensity": "Intensity",
+      "range": "Range",
+      "accuracy": "Accuracy",
+      "partner": "Partner Digimon"
     },
     "Buttons": {
-      "CreateItem": "Create Item",
-      "CreateAbility": "Create Ability",
-      "CreateEquipment": "Create Equipment",
-      "CreateSkill": "Create Skill",
-      "Edit": "Edit",
-      "Delete": "Delete"
+      "createItem": "Create Item",
+      "addTalent": "Add Talent",
+      "addAttack": "Add Attack",
+      "addAbility": "Add Ability",
+      "addEquipment": "Add Equipment",
+      "addConsumable": "Add Consumable",
+      "addAsset": "Add Asset",
+      "edit": "Edit",
+      "delete": "Delete",
+      "selectPartner": "Select Partner"
     },
     "DamageTypes": {
-      "Physical": "Physical",
-      "Energy": "Energy",
-      "Digital": "Digital",
-      "Elemental": "Elemental"
-    },
-    "CostTypes": {
-      "Energy": "Energy",
-      "Health": "Health",
-      "None": "None"
+      "physical": "Physical",
+      "magical": "Magical",
+      "neutral": "Neutral"
     }
   }
 }
