@@ -16,7 +16,7 @@
 }
 
 /* ========== Flexbox Utilities ========== */
-.flexrow {
+.digital-world-adventures .flexrow {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -24,7 +24,7 @@
   align-items: center;
 }
 
-.flexcol {
+.digital-world-adventures .flexcol {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
